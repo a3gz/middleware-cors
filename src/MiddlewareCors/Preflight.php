@@ -60,7 +60,7 @@ class Preflight
      *
      * @return bool True if logged, false if no logger.
      */
-    final protected function addLog(string $string)
+    final protected function addLog($string)
     {
         $return = call_user_func($this->logger, $string);
         return $return;
