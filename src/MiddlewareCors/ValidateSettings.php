@@ -11,8 +11,6 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-declare (strict_types = 1);
-
 namespace Bairwell\MiddlewareCors;
 
 /**
@@ -32,7 +30,7 @@ class ValidateSettings
      *
      * @throws \InvalidArgumentException If the data is incorrect.
      */
-    public function __invoke(string $name, $value, array $allowed)
+    public function __invoke($name, $value, array $allowed)
     {
         if ((true === $this->validateString($value, $allowed))
             || (true === $this->validateArray($name, $value, $allowed))
@@ -57,7 +55,7 @@ class ValidateSettings
      * @throws \InvalidArgumentException If the data is inaccurate/incorrect.
      * @return bool True if validated, false if not
      */
-    final protected function validateBool($value, array $allowed) : bool
+    final protected function validateBool($value, array $allowed) 
     {
         if (true === in_array('bool', $allowed)) {
             if (true === is_bool($value)) {
@@ -77,7 +75,7 @@ class ValidateSettings
      * @throws \InvalidArgumentException If the data is inaccurate/incorrect.
      * @return bool True if validated, false if not
      */
-    final protected function validateString($value, array $allowed) : bool
+    final protected function validateString($value, array $allowed)
     {
         if (true === in_array('string', $allowed)) {
             if (true === is_string($value)) {
@@ -97,7 +95,7 @@ class ValidateSettings
      * @throws \InvalidArgumentException If the data is inaccurate/incorrect.
      * @return bool True if validated, false if not
      */
-    final protected function validateCallable($value, array $allowed) : bool
+    final protected function validateCallable($value, array $allowed)
     {
         if (true === in_array('callable', $allowed)) {
             if (true === is_callable($value)) {
@@ -118,7 +116,7 @@ class ValidateSettings
      * @throws \InvalidArgumentException If the data is inaccurate/incorrect.
      * @return bool True if validated, false if not
      */
-    final protected function validateInt(string $name, $value, array $allowed) : bool
+    final protected function validateInt($name, $value, array $allowed) 
     {
         if (true === in_array('int', $allowed)) {
             if (true === is_int($value)) {
@@ -143,7 +141,7 @@ class ValidateSettings
      * @throws \InvalidArgumentException If the data is inaccurate/incorrect.
      * @return bool True if validated, false if not
      */
-    final protected function validateArray(string $name, $value, array $allowed) : bool
+    final protected function validateArray($name, $value, array $allowed)
     {
         if (true === in_array('array', $allowed)) {
             if (true === is_array($value)) {

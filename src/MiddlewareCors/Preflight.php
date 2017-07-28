@@ -11,8 +11,6 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-declare (strict_types = 1);
-
 namespace Bairwell\MiddlewareCors;
 
 use Psr\Http\Message\ResponseInterface;
@@ -62,7 +60,7 @@ class Preflight
      *
      * @return bool True if logged, false if no logger.
      */
-    final protected function addLog(string $string) : bool
+    final protected function addLog(string $string)
     {
         $return = call_user_func($this->logger, $string);
         return $return;
@@ -95,7 +93,7 @@ class Preflight
         ServerRequestInterface $request,
         ResponseInterface $response,
         array &$headers
-    ) : ResponseInterface
+    ) 
     {
         // check the allow methods
         $allowMethods = $this->parseItem('allowMethods', $request, false);
@@ -168,7 +166,7 @@ class Preflight
         ServerRequestInterface $request,
         ResponseInterface $response,
         array &$headers
-    ): ResponseInterface
+    )
     {
         // allow headers
         $allowHeaders           = $this->parseItem('allowHeaders', $request, false);
@@ -249,7 +247,7 @@ class Preflight
         ResponseInterface $response,
         array $headers,
         string $origin
-    ) : ResponseInterface
+    ) 
     {
         $this->settings = $settings;
 

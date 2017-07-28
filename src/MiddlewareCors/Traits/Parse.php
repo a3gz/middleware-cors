@@ -11,8 +11,6 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-declare (strict_types = 1);
-
 namespace Bairwell\MiddlewareCors\Traits;
 
 use Psr\Http\Message\ServerRequestInterface;
@@ -31,7 +29,7 @@ trait Parse
      *
      * @return bool True if logged, false if no logger.
      */
-    abstract protected function addLog(string $string) : bool;
+    abstract protected function addLog($string);
 
     /**
      * Parse an item from string/int/callable/array to an expected value.
@@ -44,7 +42,7 @@ trait Parse
      * @throws \InvalidArgumentException If the item is invalid.
      * @return string
      */
-    protected function parseItem(string $itemName, ServerRequestInterface $request, bool $isSingle = false) : string
+    protected function parseItem($itemName, ServerRequestInterface $request, $isSingle = false)
     {
         $item = $this->settings[$itemName];
         // we allow callables to be set (along with strings) so we can vary things upon requests.
@@ -99,7 +97,7 @@ trait Parse
      * @throws \InvalidArgumentException If the item is missing from settings or is invalid.
      * @return boolean
      */
-    protected function parseAllowCredentials(ServerRequestInterface $request) : bool
+    protected function parseAllowCredentials(ServerRequestInterface $request) 
     {
         // read in the current setting
         $item = $this->settings['allowCredentials'];
@@ -126,7 +124,7 @@ trait Parse
      * @throws \InvalidArgumentException If the item is missing from settings or is invalid.
      * @return integer
      */
-    protected function parseMaxAge(ServerRequestInterface $request) : int
+    protected function parseMaxAge(ServerRequestInterface $request)
     {
         $item = $this->settings['maxAge'];
         // we allow callables to be set (along with strings) so we can vary things upon requests.
@@ -158,7 +156,7 @@ trait Parse
      *
      * @return string
      */
-    protected function parseOrigin(ServerRequestInterface $request, array &$allowedOrigins = []) : string
+    protected function parseOrigin(ServerRequestInterface $request, array &$allowedOrigins = [])
     {
         // read the client provided origin header
         $origin = $request->getHeaderLine('origin');
@@ -233,7 +231,7 @@ trait Parse
      *
      * @return string
      */
-    protected function addProtocolPortIfNeeded(string $matched, array $parsed) : string
+    protected function addProtocolPortIfNeeded($matched, array $parsed)
     {
         if ('' === $matched || '*' === $matched) {
             $return = $matched;
@@ -279,7 +277,7 @@ trait Parse
      *
      * @return string The matching origin (can be *) or '' for empty/not matched
      */
-    protected function parseOriginMatch(string $item, string $origin) :string
+    protected function parseOriginMatch($item, $origin) 
     {
         $this->addLog('Checking configuration origin of "'.$item.'" against user "'.$origin.'"');
         if ('' === $item || '*' === $item) {

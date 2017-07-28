@@ -14,8 +14,6 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-declare (strict_types = 1);
-
 namespace Bairwell;
 
 use Bairwell\MiddlewareCors\ValidateSettings;
@@ -136,7 +134,7 @@ class MiddlewareCors
      *
      * @return bool True if logged, false if no logger.
      */
-    public function addLog(string $string, array $logData = []) : bool
+    public function addLog($string, array $logData = []) 
     {
         if (null !== $this->logger) {
             $this->logger->debug('CORs: '.$string, $logData);
@@ -152,7 +150,7 @@ class MiddlewareCors
      *
      * @return array
      */
-    public function getDefaults() : array
+    public function getDefaults() 
     {
         // our default settings
         $return = [
@@ -172,7 +170,7 @@ class MiddlewareCors
      *
      * @return array
      */
-    public function getSettings() : array
+    public function getSettings() 
     {
         return $this->settings;
     }//end getSettings()
@@ -184,7 +182,7 @@ class MiddlewareCors
      *
      * @return self
      */
-    public function setSettings(array $settings = []) : self
+    public function setSettings(array $settings = []) 
     {
         $this->settings = array_merge($this->settings, $settings);
         // loop through checking each setting
@@ -200,7 +198,7 @@ class MiddlewareCors
      *
      * @return array
      */
-    public function getAllowedSettings() : array
+    public function getAllowedSettings() 
     {
         return $this->allowedSettings;
     }//end getAllowedSettings()
@@ -222,7 +220,7 @@ class MiddlewareCors
         ServerRequestInterface $request,
         ResponseInterface $response,
         callable $next
-    ) : ResponseInterface
+    ) 
     {
         // if there is no origin header set, then this isn't a CORs related
         // call and we should therefore return.
