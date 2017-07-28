@@ -9,6 +9,11 @@
             "name": "Richard Bairwell",
             "email": "richard@bairwell.com",
             "homepage": "http://www.bairwell.com"
+        },
+        {
+            "name": "Alejandro Arbiza",
+            "email": "arbiza@roetal.com",
+            "role": "Back-stepper to PHP 5.5"
         }
     ],
     "type": "library",
