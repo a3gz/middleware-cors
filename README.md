@@ -1,11 +1,6 @@
 # Bairwell\Middleware-Cors
 
-[![Latest Stable Version](https://poser.pugx.org/bairwell/middleware-cors/v/stable)](https://packagist.org/packages/bairwell/middleware-cors)
 [![License](https://poser.pugx.org/bairwell/middleware-cors/license)](https://packagist.org/packages/bairwell/middleware-cors)
-[![SensioLabsInsight](https://insight.sensiolabs.com/projects/8aea9987-e478-4faa-a3fe-728e9423b4e7/mini.png)](https://insight.sensiolabs.com/projects/8aea9987-e478-4faa-a3fe-728e9423b4e7)
-[![Coverage Status](https://coveralls.io/repos/bairwell/middleware-cors/badge.svg?branch=master&service=github)](https://coveralls.io/github/bairwell/middleware-cors?branch=master)
-[![Build Status](https://travis-ci.org/bairwell/middleware-cors.svg?branch=master)](https://travis-ci.org/bairwell/middleware-cors)
-[![Total Downloads](https://poser.pugx.org/bairwell/middleware-cors/downloads)](https://packagist.org/packages/bairwell/middleware-cors)
 
 ~~This is a PHP 7 [Composer](https://getcomposer.org/) compatible library for providing a [PSR-7]((http://www.php-fig.org/psr/psr-7/) compatible middleware layer for handling
 "[CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS)" (Cross Origin Request Security/Cross-Origin Http Request/HTTP access control) headers and security.~~
@@ -29,25 +24,23 @@
 * Minimal third party requirements (just the definition files "[psr/http-message](https://github.com/php-fig/http-message)" and "[psr/log](https://github.com/php-fig/log)" as interface definitions, and [PHPUnit](https://phpunit.de/), [PHPCodeSniffer](http://www.squizlabs.com/php-codesniffer), and [Monolog](https://github.com/Seldaek/monolog) for development/testing).
 
 # Installation
-Install with Composer via:
+Install with Composer:
 
-```bash
-$ composer require a3gz/middleware-cors
-```
+Add this to your project's `composer.json` file:
 
-or by modifying your `composer.json` file:
-````
-{
+    
+    ...
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/a3gz/middleware-cors"
+        }
+    ],    
     "require": {
-        "a3gz/middleware-cors" : "@stable"
+        ...
+        "bairwell/middleware-cors": "0.4.0"
     }
-}
-````
-
-or from the Github repository (which is needed to be able to fork and contribute):
-````
-$ git clone git://github.com:bairwell/middleware-cors.git
-````
+    ...
 
 # Usage
 
