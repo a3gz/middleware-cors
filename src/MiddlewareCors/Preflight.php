@@ -246,7 +246,7 @@ class Preflight
         ServerRequestInterface $request,
         ResponseInterface $response,
         array $headers,
-        string $origin
+        $origin
     ) 
     {
         $this->settings = $settings;
